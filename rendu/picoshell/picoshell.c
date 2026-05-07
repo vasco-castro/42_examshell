@@ -63,8 +63,8 @@ int picoshell(char **cmds[]) {
 			return 1;
 		}
 		if (pid == 0)
-			child(fd, cmds[i + 1] != NULL, cmds[i]);
-		parent(fd, cmds[i + 1] != NULL);
+			child(fd, cmds[i + 1] == NULL, cmds[i]);
+		parent(fd, cmds[i + 1] == NULL);
 		i++;
 	}
 	while (i-- > 0)

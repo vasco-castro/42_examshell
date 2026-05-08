@@ -12,7 +12,7 @@ void err(char c){
 	if (error)
 		return;
 	error = true;
-	if (c == 0)
+	if (c == 0 || *s == 0)
 		printf("Unexpected end of input");
 	else
 		printf("Unexpected token '%c'\n", c);
@@ -60,6 +60,8 @@ int main(int argc, char *argv[])
 		return 1;
 	s = argv[1];
 	int res = level0_add();
+	if (*s)
+		err(*s++);
 	if (error == true)
 		return 1;
 	printf("%d\n", res);
